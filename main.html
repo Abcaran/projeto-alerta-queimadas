@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Queimadas Brasil</title>
+  </head>
+  <div class="flex flex-col bg-yellow-100 h-screen justify-betweenn">
+    <header class="shadow-md bg-yellow-400 px-4 py-4">
+        <div class="text-black-700">
+            Focos de queimadas no Brasil
+        </div>  
+    </header>
+    <main class="mb-auto h-10">
+        <div class="flex justify-center px-4 py-4">
+            MAPA
+        </div>
+        <div class="px-32 py-8">
+            <div class="flex flex-col">
+                <div class="flex justify-center -my-2">
+                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="shadow overflow-hidden border-b border-gray-500 sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-500">
+                        <thead>
+                            <tr>
+                            <th class="px-20 py-3 bg-yellow-200 text-left text-xs leading-4 font-medium text-yellow-900 uppercase tracking-wider">
+                                Município
+                            </th>
+                            <th class="px-8 py-3 bg-yellow-200 text-left text-xs leading-4 font-medium text-yellow-900 uppercase tracking-wider">
+                                Risco
+                            </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                            <td class="px-16 py-4 whitespace-wrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm leading-5 font-medium text-gray-900">
+                                        Município A
+                                        </div>
+                                        <div class="text-sm leading-5 text-gray-500">
+                                        Estado A
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-no-wrap">
+                                <span class="px-2 inline-flex text-s leading-5 font-semibold rounded-full bg-yellow-500 text-yellow-800">
+                                Baixo
+                                </span>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td class="px-16 py-4 whitespace-wrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm leading-5 font-medium text-gray-900">
+                                        Município B
+                                        </div>
+                                        <div class="text-sm leading-5 text-gray-500">
+                                        Estado A
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-no-wrap">
+                                <span class="px-2 inline-flex text-s leading-5 font-semibold rounded-full bg-orange-500 text-orange-900">
+                                Médio
+                                </span>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td class="px-16 py-4 whitespace-wrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm leading-5 font-medium text-gray-900">
+                                        Município C
+                                        </div>
+                                        <div class="text-sm leading-5 text-gray-500">
+                                        Estado A
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-no-wrap">
+                                <span class="px-2 inline-flex text-s font-semibold rounded-full bg-red-500 text-red-900">
+                                Alto
+                                </span>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td class="px-16 py-4 whitespace-wrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm leading-5 font-medium text-gray-900">
+                                        Município D
+                                        </div>
+                                        <div class="text-sm leading-5 text-gray-500">
+                                        Estado A
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-no-wrap">
+                                <span class="px-2 inline-flex text-s font-semibold rounded-full bg-gray-300 text-gray-800">
+                                Nulo
+                                </span>
+                            </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="px-4 py-4 bg-yellow-400 text-center">© leandro shibahara, mateus kono, rafael gouveia e samir saadi</footer>
+    <script
+      src="main.js"></script>
+  </div>
+</html>
