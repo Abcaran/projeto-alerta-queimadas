@@ -11,89 +11,17 @@ const queimadasApiUrl =
 const App = () => {
 
   const [loading, setLoading] = useState(true);
-  const [statesId, setStatesId] = useState(
-    {
-        "MATO GROSSO": 51,
-        "GOIÁS": 52,
-        "DISTRITO FEDERAL": 53,
-        "RONDÔNIA": 11,
-        "ACRE": 12,
-        "AMAZONAS": 13,
-        "RORAIMA": 14,
-        "PARÁ": 15,
-        "AMAPÁ": 16,
-        "TOCANTINS": 17,
-        "MARANHÃO": 21,
-        "PIAUÍ": 22,
-        "CEARÁ": 23,
-        "PARAÍBA": 25,
-        "RIO GRANDE DO NORTE": 24,
-        "PERNAMBUCO": 26,
-        "ALAGOAS": 27,
-        "SERGIPE": 28,
-        "BAHIA": 29,
-        "MINAS GERAIS": 31,
-        "ESPÍRITO SANTO": 32,
-        "RIO DE JANEIRO": 33,
-        "SÃO PAULO": 35,
-        "PARANÁ": 41,
-        "SANTA CATARINA": 42,
-        "RIO GRANDE DO SUL": 43,
-        "MATO GROSSO DO SUL": 50,
-      }
-  );
+  const [statesInfo, setStatesInfo] = useState({});
 
-  async function getData() {
-
-        var requestOptions = {
-            method: 'GET',
-            redirect: 'follow',
-            mode: 'cors'
-        };
-
-        await Promise.all(
-            Object.entries(statesId).map((row) => {
-                console.log(row);
-                return Promise.all([
-                    fetch("http://localhost:8080/focos/33/" + row[1], requestOptions)
-                    .then(response => response.text())  
-                    .then(result => console.log(result))
-                    .catch(error => console.log('error', error))
-                    , row[0]]);
-            })
-        )
-        .then(res => Promise.all(res))
-        .then(res => Promise.all(res.map(async row => {
-            row[0] = await row[0].text();
-            row[0] = JSON.parse(row[0]);
-            row[0] = row[0].Brasil;
-            return row;
-        })))
-        .then(res => {
-            res.forEach(row => {
-                console.log(row);
-                if (row[0] <= 1) {
-                    console.log('colored!FEE464');
-                    statesId[row[1]] = "#FEE464";
-                } else if (row[0] <= 101) {
-                    console.log('colored!FEC964');
-                    statesId[row[1]] = "#FEC964";
-                } else if (row[0] <= 201) {
-                    console.log('colored!FF7D40');
-                    statesId[row[1]] = "#FF7D40";
-                } else {
-                    console.log('colored!FF0000');
-                    statesId[row[1]] = "#FF0000";
-                }
-            });
-
+  function getData() {
+      fetch("fires.json")
+        .then(response => response.text())
+        .then(response => {
+            console.log(response);
+            setStatesInfo(JSON.parse(response));
             setLoading(false);
-            console.log(statesId);
-            setStatesId(statesId);
         })
-        .catch(err => {
-            console.log('Deu totalmente ruim.', err);
-        });
+        .catch(err => console.log("ERROR!", err));
   }
 
   // Construtor
@@ -109,7 +37,8 @@ const App = () => {
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
-                  const color = statesId[geo.properties.nome.toUpperCase()];
+                  const state = statesInfo.find(x => x.name === geo.properties.nome.toUpperCase())
+                  const color = state.color;
                 return (
                   <Geography
                     key={geo.rsmKey}

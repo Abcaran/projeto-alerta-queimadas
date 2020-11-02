@@ -37,7 +37,19 @@ function getState(state) {
     return new Promise(async (resolve, reject) => {
         try {
             const data = await axios("http://localhost:8080/focos/33/" + state['id']);
-            resolve({...state, fires: data.data.Brasil});
+            let color = "";
+
+            if (data.data.Brasil <= 1) {
+                color = "#FEE464";
+            } else if (data.data.Brasil <= 101) {
+                color = "#FEC964";
+            } else if (data.data.Brasil <= 201) {
+                color = "#FF7D40";
+            } else {
+                color = "#FF0000";
+            }
+
+            resolve({...state, fires: data.data.Brasil, color});
         } catch (error) {
             reject(error.message);
         }
