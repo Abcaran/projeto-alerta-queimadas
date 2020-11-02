@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const port = 8080
 var axios = require('axios')
-// var cors = require('cors');
-// app.use(cors());
+var cors = require('cors');
+app.use(cors());
 
 app.get('/focos/:pais/:estado', async (req, res) => {
     var config = {
