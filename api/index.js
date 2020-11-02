@@ -1,3 +1,5 @@
+#!/root/.nvm/versions/node/v12.18.3/bin/node
+
 const express = require('express')
 const app = express()
 const port = 8080
@@ -22,6 +24,6 @@ app.get('/focos/:pais/:estado', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
+app.listen(port, 'localhost', () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });

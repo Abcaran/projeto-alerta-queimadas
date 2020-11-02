@@ -1,3 +1,5 @@
+#!/root/.nvm/versions/node/v12.18.3/bin/node
+
 var axios = require('axios')
 var fs = require("fs");
 
@@ -34,7 +36,7 @@ const brazil_states_info = [
 function getState(state) {
     return new Promise(async (resolve, reject) => {
         try {
-            const data = await axios("http://api.queimadas.rafaelherbert.com.br/focos/33/" + state['id']);
+            const data = await axios("http://localhost:8080/focos/33/" + state['id']);
             resolve({...state, fires: data.data.Brasil});
         } catch (error) {
             reject(error.message);
@@ -47,7 +49,7 @@ async function getFiresData() {
         const firesData = await Promise.all(brazil_states_info.map((state) => getState(state)));
         const jsonFiresData = JSON.stringify(firesData);
 
-        fs.writeFile("/var/www/queimadas.rafaelherbert.com.br", jsonFiresData, (err) => {
+        fs.writeFile("/var/www/queimadas.rafaelherbert.com.br/fires.json", jsonFiresData, (err) => {
             if (err) console.log(err);
             console.log("Successfully Written to File.");
         });
