@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+    background-color:white;
+    padding:20px 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+
+    .left {
+        .logo {
+            display:flex;
+            align-items:center;
+            text-decoration:none;
+            font-size:20px;
+            color: #00923F;
+            font-weight:600;
+
+            img {
+                width:70px;
+                margin-right:20px;
+            }
+        }
+    }
+
+    .right {
+        .menu {
+            display: flex;
+            .menu_item {
+                list-style:none;
+                .menu_link {
+                    padding:20px;
+                    text-decoration: none;
+                    cursor: pointer;
+                    font-weight:400;
+                }
+            }
+        }
+    }
+}
+
+section {
+    padding: 20px 200px;
+    position: relative;
+
+    .left {
+        width:50%;
+    }
+
+    .right {
+        width:50%;
+    }
+
+}
+
+#firstSection {
+    margin-top:30px;
+    display: flex;
+    align-items:center;
+
+    .left {
+        .title {
+            width:600px;
+            font-size:80px;
+            font-weight: bold;
+            margin-bottom:20px;
+    
+            span {
+                font-size: 90px;
+                background: -webkit-linear-gradient(270deg, #05f705, #00923F);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
+        .subtitle {
+            width:600px;
+            font-size:24px;
+            line-height: 1.5em;
+            color: #00923F;
+        }
+    }
+
+    .right {
+        .mapaBrasil {
+            float: right;
+            width:700px;
+        }
+    }
+}
+
+
+
