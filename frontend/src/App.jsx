@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MapaBrasil from './mapa_brasil.png';
 import Map  from './Map.js';
+import Noticias from './Noticias';
 
 const App = () => {
+
     return (
         <>
             <section id="firstSection">
@@ -15,7 +17,14 @@ const App = () => {
                 </div>
             </section>
 
+            <section id="noticiasQueimadas">
+                <Noticias></Noticias>
+            </section>
+
             <section id="statusQueimadas">
+                <div className="sectionTitle">
+                    Resumo quantitativo da situação das queimadas no Brasil
+                </div>
                 <Map></Map>
             </section>
         </>
