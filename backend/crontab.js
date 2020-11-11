@@ -39,14 +39,18 @@ function getState(state) {
             const data = await axios("http://localhost:8080/focos/33/" + state['id']);
             let color = "";
 
-            if (data.data.Brasil <= 1) {
-                color = "#FEE464";
+            if (data.data.Brasil == 0) {
+              color = "#BEFF59";
             } else if (data.data.Brasil <= 101) {
-                color = "#FEC964";
+              color = "#F6EE89";
             } else if (data.data.Brasil <= 201) {
-                color = "#FF7D40";
+              color = "#F2DE52";
+            } else if (data.data.Brasil <= 301) {
+              color = "#FFC766";
+            } else if (data.data.Brasil <= 401) {
+              color = "#EB7946";
             } else {
-                color = "#FF0000";
+              color = "#FF0020";
             }
 
             resolve({...state, fires: data.data.Brasil, color});
