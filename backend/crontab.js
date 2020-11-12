@@ -60,12 +60,22 @@ function getState(state) {
     });
 }
 
+
 async function getFiresData() {
     try {
         const firesData = await Promise.all(brazil_states_info.map((state) => getState(state)));
         const jsonFiresData = JSON.stringify(firesData);
 
+        const noticiasData = await axios("http://localhost:8080/noticias");
+        const jsonNoticiasData = JSON.stringify(noticiasData);
+
+
         fs.writeFile("/var/www/queimadas.rafaelherbert.com.br/fires.json", jsonFiresData, (err) => {
+            if (err) console.log(err);
+            console.log("Successfully Written to File.");
+        });
+
+        fs.writeFile("/var/www/queimadas.rafaelherbert.com.br/noticias.json", jsonNoticiasData, (err) => {
             if (err) console.log(err);
             console.log("Successfully Written to File.");
         });
