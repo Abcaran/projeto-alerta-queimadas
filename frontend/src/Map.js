@@ -16,7 +16,7 @@ const Map = () => {
     fetch("fires.json")
       .then((response) => response.text())
       .then((response) => {
-        console.log(response);
+        console.log('gettingData', response);
         setStatesInfo(JSON.parse(response));
         setLoading(false);
       })
@@ -35,7 +35,9 @@ const Map = () => {
   if (loading) return <h1>Carregando!</h1>;
   else {
     return (
-      <div id="map">
+      <div id="map" style={{
+          pointerEvents:'none'
+      }}>
         <ComposableMap viewBox="190 0 510 480" preserveAspectRatio="xMidYMin slice" projection="geoMercator" style={{
             width: 500,
             // display:'flex',
@@ -64,21 +66,11 @@ const Map = () => {
                         strokeWidth: 0,
                         outline: "none",
                       },
-                      hover: {
-                        fill: "#CFD8DC",
-                        stroke: "#607D8B",
-                        strokeWidth: 1,
-                        outline: "none",
-                      },
-                      pressed: {
-                        fill: "#FFFFFF",
-                        stroke: "#607D8B",
-                        strokeWidth: 1,
-                        outline: "none",
-                      },
+                      hover: null
                     }}
                     onClick={() => handleStateClick(state)}
-                  />
+                  >
+                  </Geography>
                 );
               })
             }

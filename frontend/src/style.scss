@@ -38,10 +38,17 @@ html {
             .menu_item {
                 list-style:none;
                 .menu_link {
+                    color: rgba(0, 0, 0, .8);
                     padding:20px;
                     text-decoration: none;
                     cursor: pointer;
                     font-weight:400;
+
+                    &:hover {
+                        -webkit-transition:.3s;
+                        transition: .3s;
+                        background-color: rgba(0, 0, 0, .05);
+                    }
                 }
             }
         }
@@ -112,6 +119,7 @@ section {
 
     .right {
         .mapaBrasil {
+            margin-top: 100px;
             float: right;
             width:700px;
         }
@@ -120,7 +128,7 @@ section {
 
 #noticiasQueimadas {
     padding-top:50px;
-    background-color: #E8EAEE;
+    // background-color: #E8EAEE;
 
     .noticiaCard {
         text-decoration: none;
@@ -187,6 +195,93 @@ section {
                     font-weight: 900;
                     color: rgba(0, 0, 0, .4);
                 }
+            }
+        }
+    }
+}
+
+#statusQueimadas {
+    padding-top:50px;
+
+    .areasProtegidas {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 100px;
+    }
+    
+    .divider {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+        .left {
+            .sticky {
+                box-sizing: border-box;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 60px;
+                height: calc(100vh - 100px);
+                display: flex;
+                flex-direction: column;
+                align-items:center;
+
+                > * {
+                    margin-top: 40px;
+                }
+
+                > table {
+                    width: 50%;
+                    td, tr {
+                        padding: 5px !important;
+                    }
+                }
+            }
+        }
+    
+        .right {
+        }
+
+    }
+}
+
+
+table {
+    box-sizing: border-box;
+    border-collapse: collapse; 
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius:50%; 
+    
+    thead {
+        tr {
+            border-bottom: 1px solid rgba(0, 0, 0, .3);
+            th {
+                padding: 15px 15px;
+                border-right: 1px solid rgba(0, 0, 0, .3);
+                margin: 0;
+
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid rgba(0, 0, 0, .3);
+            &:nth-child(even) {
+                background-color: white;
+            }
+
+            &:nth-child(odd) {
+                background-color: rgba(0, 0, 0, .1);
+            }
+
+            td {
+                width: 300px;
+                padding: 15px 15px;
+                margin: 0;
             }
         }
     }
