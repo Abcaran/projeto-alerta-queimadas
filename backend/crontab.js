@@ -67,7 +67,9 @@ async function getFiresData() {
         const jsonFiresData = JSON.stringify(firesData);
 
         const noticiasData = await axios("http://localhost:8080/noticias");
-        const jsonNoticiasData = JSON.stringify(noticiasData);
+        console.log(noticiasData);
+        const jsonNoticiasData = noticiasData;
+        // const jsonNoticiasData = JSON.stringify(noticiasData);
 
 
         fs.writeFile("/var/www/queimadas.rafaelherbert.com.br/fires.json", jsonFiresData, (err) => {
@@ -79,7 +81,6 @@ async function getFiresData() {
             if (err) console.log(err);
             console.log("Successfully Written to File.");
         });
-
     } catch (error) {
         console.log(error);        
     }
