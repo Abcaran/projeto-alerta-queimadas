@@ -67,8 +67,8 @@ async function getFiresData() {
         const jsonFiresData = JSON.stringify(firesData);
 
         const noticiasData = await axios("http://localhost:8080/noticias");
-        console.log(noticiasData);
-        const jsonNoticiasData = noticiasData;
+        console.log(noticiasData.data);
+        const jsonNoticiasData = noticiasData.data;
         // const jsonNoticiasData = JSON.stringify(noticiasData);
 
 
