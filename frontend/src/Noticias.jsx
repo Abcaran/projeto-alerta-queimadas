@@ -5,7 +5,7 @@ const Noticias = () => {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        fetch("http://queimadas.rafaelherbert.com.br/noticias")
+        fetch("noticias.json")
             .then(async function(response) {
                 const data = await response.json();
                 setNews(data);
