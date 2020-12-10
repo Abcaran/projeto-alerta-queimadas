@@ -18,7 +18,6 @@ const Noticias = () => {
             Últimas notícias sobre queimadas no Brasil
         </div>
         {news.articles && news.articles.map(info => {
-            console.log(info);
             return (
                 <a className="noticiaCard" href={info.url} target="_blank">
                     <div className="image" style={{

@@ -121,7 +121,7 @@ section {
         .mapaBrasil {
             margin-top: 100px;
             float: right;
-            width:700px;
+            width:80%;
         }
     }
 }
@@ -212,6 +212,7 @@ section {
     
     .divider {
         display: flex;
+        flex-direction: row-reverse;
         justify-content: space-between;
         position: relative;
 
@@ -231,19 +232,156 @@ section {
                 }
 
                 > table {
-                    width: 50%;
                     td, tr {
                         padding: 5px !important;
+                    }
+                }
+            }
+
+            .legendas {
+                display: flex;
+                flex-direction: row;
+                div {
+                    display: inline-flex;
+                    align-items:center;
+                    div {
+                        font-weight: bold;
+                        display: inline-block;
+                        &:nth-child(odd) {
+                            display: inline-block;
+                            margin: 0px 10px;
+                            width: 25px;
+                            height: 25px;
+                        }
                     }
                 }
             }
         }
     
         .right {
+            .fireMapsTitle {
+                position: relative;
+                color: black;
+                font-size: 30px;
+                font-weight: bold;
+                margin-bottom: 80px;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 60px;
+                    left: 0;
+                    display: block;
+                    width: 100px;
+                    height: 5px;
+                    border-radius:20px;
+                    background: -webkit-linear-gradient(180deg, red, pink);
+                }
+            }
+
+            > div.description {
+                font-size: 18px;
+                color: rgba(0, 0, 0, .5);
+                font-weight: bold;
+                margin-bottom: 50px;
+            }
+
+            > div.item {
+                font-size: 20px;
+                margin: 40px 0px 40px 100px;
+                width: 500px;
+            }
+
+            > div.item:not(:first-of-type) {
+                &:before {
+                    content: '';
+                    width: 20px;
+                    height: 5px;
+                    border-radius:20px;
+                    background-color: red;
+                    display: block;
+                    margin: auto;
+                    margin-bottom: 30px;
+                    position: relative;
+                    right: 20px;
+                }
+            }
+
+            .legendas {
+                display: flex;
+                flex-direction: column;
+                div {
+                    display: inline-flex;
+                    align-items:center;
+                    div {
+                        font-weight: bold;
+                        display: inline-block;
+                        &:nth-child(odd) {
+                            display: inline-block;
+                            margin: 0px 10px;
+                            width: 25px;
+                            height: 25px;
+                        }
+                    }
+                }
+            }
         }
 
     }
 }
+
+
+#orientacoes {
+    > .row {
+        display: flex;
+        align-items:center;
+        margin-bottom: 50px;
+        > .textWrapper {
+            box-sizing: border-box;
+            display: inline-flex;
+            flex-direction: column;
+            align-items:flex-start;
+            width: 50%;
+            .innerTitle {
+                font-size: 24px;
+                font-weight: bold;
+                img {
+                    position: relative;
+                    top: 2px;
+                    margin-right: 10px;
+                }
+            }
+    
+            ul {
+                li {
+                    font-size: 20px;
+                    margin: 10px 0px;
+                }
+            }
+        }
+
+        .imgWrapper {
+            border-radius: 10px;
+            overflow: hidden;
+            box-sizing: border-box;
+            display: inline-flex;
+            width: 43%;
+            margin-left: 7%;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 table {
@@ -287,5 +425,93 @@ table {
     }
 }
 
+$tablet-width: 768px;
+$desktop-width: 1500px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin smallDesktop {
+  @media (max-width: #{$desktop-width + 200px}) {
+    @content;
+  }
+}
+
+@include smallDesktop {
+    #statusQueimadas > .divider > .left {
+        .sticky {
+            transform: scale(.8);
+            top: 30px;
+        }
+    }
+}
+
+@include tablet {
+}
+
+
+@include smallDesktop {
+    #firstSection > .right > .mapaBrasil {
+        display: none;
+    }
+
+    #firstSection {
+        padding: 50px 100px;
+        .left {
+            width: 70%;
+            .title {
+                width: 100%;
+            }
+
+            .subtitle {
+                width: 100%;
+            }
+        }
+
+        .right {
+            display: none;
+        }
+    }
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
 
 
