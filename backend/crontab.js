@@ -52,7 +52,7 @@ function getState(state) {
               color = "#FFC766";
             } else if (data.data.Brasil <= 701) {
               color = "#EB7946";
-            } else (data.data.Brasil > 701) {
+            } else if (data.data.Brasil > 701) {
               color = "#FF0020";
             }
 
