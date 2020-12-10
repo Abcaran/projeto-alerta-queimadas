@@ -39,6 +39,9 @@ function getState(state) {
             const data = await axios("http://localhost:8080/focos/33/" + state['id']);
             let color = "";
 
+            if (!data.data.Brasil)
+                data.data.Brasil = 0;
+
             if (data.data.Brasil < 10) {
               color = "#BEFF59";
             } else if (data.data.Brasil <= 101) {
@@ -49,7 +52,7 @@ function getState(state) {
               color = "#FFC766";
             } else if (data.data.Brasil <= 701) {
               color = "#EB7946";
-            } else {
+            } else (data.data.Brasil > 701) {
               color = "#FF0020";
             }
 
