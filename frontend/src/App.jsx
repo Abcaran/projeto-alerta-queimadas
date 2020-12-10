@@ -7,7 +7,6 @@ import bombeiro from "./bombeiro.jpg";
 import cigarro from "./cigarro.png";
 import escudo from "./escudo.svg";
 import extintor from "./extintor.svg";
-import ReactTooltip from "react-tooltip";
 import MouseTooltip from "react-sticky-mouse-tooltip";
 import Modal from "./Modal";
 import ModalImage from "react-modal-image";
